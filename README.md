@@ -83,12 +83,7 @@ Content scripts run inside the page's own context and can be blocked by a site's
 - Read Aloud never leaves the browser (local Web Speech API).
 - Your API key is stored only in your own browser's `chrome.storage.sync` and is sent directly from your browser to the provider — never through any third-party server.
 
-## Publishing to the Chrome Web Store
 
-1. Create a [Chrome Web Store developer account](https://chrome.google.com/webstore/devconsole) (one-time $5 fee).
-2. Zip the project: `zip -r selection-assistant.zip . -x ".*"`
-3. Upload the zip in the [developer dashboard](https://chrome.google.com/webstore/devconsole). Use [STORE_LISTING.md](STORE_LISTING.md) for the exact listing content — name, description, category, permission justifications, and privacy disclosures, ready to paste in.
-4. Submit for review.
 
 ## No build step
 
