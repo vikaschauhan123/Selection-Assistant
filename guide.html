@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Selection Assistant — User Guide</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #14161b;
+        color: #e7e9ee;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      header {
+        margin-bottom: 40px;
+      }
+
+      header h1 {
+        font-size: 28px;
+        margin: 0 0 8px;
+      }
+
+      header p {
+        color: #a7acb8;
+        font-size: 15px;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 19px;
+        margin: 40px 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #2a2e37;
+      }
+
+      h3 {
+        font-size: 15px;
+        margin: 20px 0 8px;
+        color: #dbe6ff;
+      }
+
+      p,
+      li {
+        font-size: 14px;
+        color: #cdd1d9;
+      }
+
+      a {
+        color: #6fa0ff;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: #9fc0ff;
+      }
+
+      code {
+        background: #22262f;
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-size: 13px;
+        color: #f0c674;
+      }
+
+      .card {
+        background: #1c1f26;
+        border: 1px solid #2a2e37;
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin: 12px 0;
+      }
+
+      .card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
+
+      .icon {
+        font-size: 18px;
+      }
+
+      ol,
+      ul {
+        padding-left: 20px;
+      }
+
+      .pill {
+        display: inline-block;
+        background: #2a2e37;
+        color: #a7acb8;
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 11.5px;
+        margin-right: 6px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 13.5px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid #2a2e37;
+      }
+
+      th {
+        color: #a7acb8;
+        font-weight: 600;
+      }
+
+      .note {
+        background: #20260f;
+        border: 1px solid #3a4a1f;
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 13.5px;
+        color: #cfe6a0;
+      }
+
+      .warn {
+        background: #2a1c1c;
+        border: 1px solid #4a2323;
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 13.5px;
+        color: #f0a8a0;
+      }
+
+      footer {
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid #2a2e37;
+        color: #767b87;
+        font-size: 12.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Selection Assistant — User Guide</h1>
+        <p>Select text on any webpage to hear it, rephrase it, translate it, or define it.</p>
+      </header>
+
+      <h2>1. Settings</h2>
+      <p>Click the Selection Assistant icon in your toolbar to open settings.</p>
+
+      <h3>Enable toolbar on selection</h3>
+      <p>A single switch at the top turns the whole extension on or off. Flipping it takes effect immediately on every open tab — no page refresh needed. Turn it off any time the toolbar is getting in your way (e.g. while working in a text-heavy editor).</p>
+
+      <h3>API key (for Rephrase)</h3>
+      <p>Read Aloud, Translate, and Define all work with no setup. Only <strong>Rephrase</strong> needs an API key, since it calls an AI model.</p>
+      <ol>
+        <li>Paste an API key into the <strong>API Key</strong> field — the provider is auto-detected from the key's prefix:</li>
+      </ol>
+      <table>
+        <tr>
+          <th>Key prefix</th>
+          <th>Provider</th>
+          <th>Get a key</th>
+        </tr>
+        <tr>
+          <td><code>sk-ant-...</code></td>
+          <td>Anthropic (Claude)</td>
+          <td><a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer">console.anthropic.com/settings/keys</a></td>
+        </tr>
+        <tr>
+          <td><code>sk-...</code></td>
+          <td>OpenAI</td>
+          <td><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">platform.openai.com/api-keys</a></td>
+        </tr>
+      </table>
+      <p>A hint below the field confirms which provider was detected, or shows an error if the key doesn't start with either prefix.</p>
+
+      <h3>Target language (for Translate)</h3>
+      <p>Type to search — the list narrows as you type and shows up to 10 matches at a time, scrollable for more. It includes 50+ languages, with a range of Indian regional languages (Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Punjabi, Urdu, Kannada, Malayalam, Odia, Assamese, Nepali, Sanskrit, Sindhi, Konkani, Maithili, Bhojpuri, Manipuri, Dogri, and more). Click a result to select it, then click <strong>Save</strong>.</p>
+
+      <div class="note">Your API key is stored only in your own browser's <code>chrome.storage.sync</code> and is sent directly from your browser to OpenAI or Anthropic — it never passes through any other server.</div>
+
+      <h2>2. Using it on a page</h2>
+      <p>Select any text on a webpage. A small toolbar appears just below your selection. Hover over any button to see a tooltip explaining what it does.</p>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">🔊</span> Read Aloud</div>
+        <p>Speaks the selected text using your browser's built-in voice. Click again while it's speaking to stop. Use the <span class="pill">⏱ 1x</span> button next to it to cycle playback speed: 0.75x → 1x → 1.25x → 1.5x → 2x — changing the speed mid-speech restarts playback at the new rate.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">📋</span> Copy</div>
+        <p>Copies the raw selected text straight to your clipboard — no need to run Rephrase or Translate first if you just want the original text copied. The icon briefly turns into a ✅ to confirm.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">✨</span> Rephrase</div>
+        <p>Sends the selection to your configured AI provider and shows a rewritten version in the result panel. Requires an API key (see above).</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">🌐</span> Translate</div>
+        <p>Translates the selection into your configured target language using Google Translate's free endpoint. No API key needed.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="icon">📖</span> Define</div>
+        <p>Only appears when you select a single word. Looks up its part of speech and definitions via a free dictionary API.</p>
+      </div>
+
+      <h3>Moving and minimizing the toolbar</h3>
+      <ul>
+        <li>Grab the <strong>✛</strong> handle at the start of the toolbar to drag it anywhere on screen — the cursor changes to a 4-way move icon.</li>
+        <li>Click <strong>−</strong> at the end of the toolbar to shrink it down to a small <strong>⋯</strong> dot; click that dot to expand it again.</li>
+        <li>Both where you dragged it to and whether it's minimized are remembered — your next text selection on the same page opens the toolbar in that same spot and state. This resets when you refresh the page.</li>
+      </ul>
+
+      <h3>The result panel</h3>
+      <ul>
+        <li>Click the <strong>📋</strong> icon (top-right) to copy the result to your clipboard.</li>
+        <li>Click <strong>×</strong> to close it, click anywhere outside it, or press <strong>Esc</strong>.</li>
+        <li>The toolbar and panel automatically stay on-screen — they flip above/below and left/right of your selection depending on where there's room.</li>
+        <li>Both automatically invert their color scheme to stay visible against the page: a light toolbar/panel on dark sites, a dark one on light sites.</li>
+      </ul>
+
+      <h2>3. Troubleshooting</h2>
+
+      <h3>"Add your API key in the extension's settings popup first"</h3>
+      <p>Shown when you click Rephrase with no key saved. Open the popup, add a key, and save.</p>
+
+      <h3>"Your OpenAI/Anthropic key has run out of credits/rate limit"</h3>
+      <p>Your account needs more credits, or you've hit a rate limit. Check your provider's billing dashboard.</p>
+
+      <h3>"This extension was updated or reloaded..."</h3>
+      <p>This appears on tabs that were already open when you reloaded the extension in <code>chrome://extensions</code> during development. Simply refresh that tab.</p>
+
+      <div class="warn">If the toolbar doesn't appear at all on a specific site (e.g. an app with heavy custom text editors), that site may render your selection inside an iframe or block standard selection events — this can require site-specific handling beyond what a generic content script covers.</div>
+
+      <h2>4. Privacy</h2>
+      <ul>
+        <li><strong>Rephrase</strong> sends the selected text to OpenAI or Anthropic, per your saved key.</li>
+        <li><strong>Translate</strong> sends the selected text to Google Translate's public endpoint.</li>
+        <li><strong>Define</strong> sends the selected word to api.dictionaryapi.dev.</li>
+        <li><strong>Read Aloud</strong> never leaves your browser — it uses the local Web Speech API.</li>
+        <li>No data is collected, logged, or stored by the extension itself beyond your saved settings.</li>
+      </ul>
+
+      <footer>Selection Assistant · Manifest V3 Chrome Extension</footer>
+    </div>
+  </body>
+</html>

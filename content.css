@@ -1,0 +1,307 @@
+.sa-toolbar,
+.sa-panel {
+  all: initial;
+  position: absolute;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  animation: sa-pop-in 0.12s ease-out;
+}
+
+.sa-toolbar *,
+.sa-panel * {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+@keyframes sa-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(-2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Toolbar */
+
+.sa-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: #1c1f26;
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sa-toolbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.sa-drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 22px;
+  margin-right: 2px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1;
+  cursor: move;
+  user-select: none;
+}
+
+.sa-toolbar.sa-dragging,
+.sa-toolbar.sa-dragging .sa-drag-handle {
+  cursor: move;
+}
+
+.sa-toolbar-minimized .sa-drag-handle {
+  width: 12px;
+  height: 16px;
+  margin-right: 1px;
+  font-size: 10px;
+}
+
+.sa-minimize-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+  background: transparent;
+  border: none;
+  color: #e7e9ee;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.sa-minimize-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sa-toolbar-minimized {
+  padding: 4px;
+}
+
+.sa-toolbar-minimized .sa-toolbar-buttons {
+  display: none;
+}
+
+.sa-toolbar-minimized .sa-minimize-btn {
+  width: 16px;
+  height: 16px;
+  margin-left: 0;
+  font-size: 9px;
+}
+
+.sa-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #e7e9ee;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background 0.12s ease;
+}
+
+.sa-btn:hover,
+.sa-btn:focus {
+  background: #2f6feb;
+  color: #ffffff;
+  outline: none;
+}
+
+.sa-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.sa-label {
+  font-weight: 500;
+}
+
+/* Toolbar inverted — used when the underlying page has a dark background,
+   so the toolbar stays light/high-contrast instead of blending in. */
+
+.sa-toolbar-inverted {
+  background: #f5f6f8;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.sa-toolbar-inverted .sa-btn {
+  color: #1c1f26;
+}
+
+.sa-toolbar-inverted .sa-btn:hover,
+.sa-toolbar-inverted .sa-btn:focus {
+  background: #2f6feb;
+  color: #ffffff;
+}
+
+.sa-toolbar-inverted .sa-minimize-btn {
+  color: #1c1f26;
+}
+
+.sa-toolbar-inverted .sa-minimize-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sa-toolbar-inverted .sa-drag-handle {
+  color: #8a8f98;
+}
+
+/* Result panel */
+
+.sa-panel {
+  background: #ffffff;
+  color: #1c1f26;
+  border-radius: 12px;
+  max-width: 320px;
+  min-width: 180px;
+  padding: 14px 54px 14px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.sa-panel-body {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.sa-panel-error .sa-panel-body {
+  color: #c0342c;
+}
+
+/* Panel inverted — used when the underlying page has a light background,
+   so the panel stays dark/high-contrast instead of blending in. */
+
+.sa-panel-inverted {
+  background: #1c1f26;
+  color: #e7e9ee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sa-panel-inverted.sa-panel-error .sa-panel-body {
+  color: #ff8a80;
+}
+
+.sa-panel-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #8a8f98;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+}
+
+.sa-panel-close:hover {
+  background: #f0f1f3;
+  color: #1c1f26;
+}
+
+.sa-panel-inverted .sa-panel-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.sa-copy-icon-btn {
+  position: absolute;
+  top: 6px;
+  right: 32px;
+  background: transparent;
+  border: none;
+  color: #8a8f98;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 6px;
+}
+
+.sa-copy-icon-btn:hover {
+  background: #f0f1f3;
+  color: #1c1f26;
+}
+
+.sa-panel-inverted .sa-copy-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* API key guidance panel */
+
+.sa-apikey-guidance p {
+  margin: 0 0 8px;
+}
+
+.sa-apikey-guidance p:first-child {
+  font-weight: 600;
+  color: #c0342c;
+}
+
+.sa-apikey-guidance .sa-supported-label {
+  font-weight: 600;
+  color: #1c1f26;
+  margin-bottom: 4px;
+}
+
+.sa-apikey-guidance .sa-supported-list {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+
+.sa-apikey-guidance .sa-supported-list li {
+  margin-bottom: 4px;
+}
+
+.sa-apikey-guidance a {
+  color: #2f6feb;
+  text-decoration: underline;
+}
+
+.sa-apikey-guidance a:hover {
+  color: #4a83f0;
+}
+
+.sa-panel-inverted .sa-apikey-guidance p:first-child {
+  color: #ff8a80;
+}
+
+.sa-panel-inverted .sa-apikey-guidance .sa-supported-label {
+  color: #e7e9ee;
+}
+
+.sa-panel-inverted .sa-apikey-guidance a {
+  color: #7aa8ff;
+}
+
+.sa-panel-inverted .sa-apikey-guidance a:hover {
+  color: #9fc0ff;
+}
